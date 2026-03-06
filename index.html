@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ultra Bestie Surprise</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+font-family:Arial;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+h1{
+margin-top:120px;
+font-size:45px;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px white;}
+to{ text-shadow:0 0 30px yellow;}
+}
+
+#typing{
+font-size:22px;
+width:80%;
+margin:auto;
+line-height:35px;
+margin-top:40px;
+min-height:120px;
+}
+
+button{
+margin-top:40px;
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4d6d;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff4d6d;
+color:white;
+}
+
+.heart{
+position:absolute;
+color:red;
+font-size:20px;
+animation: float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+
+#surprise{
+display:none;
+font-size:30px;
+margin-top:30px;
+animation: glow 1.5s infinite alternate;
+}
+
+footer{
+position:fixed;
+bottom:10px;
+width:100%;
+font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c9b5a3b2b.mp3">
+</audio>
+
+<h1>💖 Dear Bestie Divya 💖</h1>
+
+<div id="typing"></div>
+
+<button onclick="showSurprise()">Click For Surprise 🎁</button>
+
+<div id="surprise">
+🌸 Divya You Are My Best Friend Forever 🌸
+</div>
+
+<footer>
+👑 Creator: Ravi
+</footer>
+
+<script>
+
+let text="Divya, tum meri life ki sabse special bestie ho. Jab bhi mujhe kisi ki zarurat hoti hai tum hamesha mere saath hoti ho. Tumhari dosti mere liye ek gift hai. Thank you meri best friend banne ke liye ❤️";
+
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,40);
+}
+}
+
+type();
+
+function showSurprise(){
+document.getElementById("surprise").style.display="block";
+}
+
+function hearts(){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+
+setInterval(hearts,300);
+
+</script>
+
+</body>
+</html>
